@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { Link, useHistory } from 'react-router-dom';
-import { ADD_SONG, GET_SONGS } from "../queries/songs"
+import { ADD_SONG, GET_SONGS } from "../queries/songs";
 
 const SongCreate = () => {
   const [title, setTitle] = useState("");
@@ -22,7 +21,7 @@ const SongCreate = () => {
     <div>
       <Link to="/">Back</Link>
       <h3>Create a New Song</h3>
-      <form onSubmit={e => onSubmit(e)}>
+      <form onSubmit={onSubmit}>
         <label>Song Title:</label>
         <input value={title} onChange={ e => setTitle(e.target.value) } />
       </form>

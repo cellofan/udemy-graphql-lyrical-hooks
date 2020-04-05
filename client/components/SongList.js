@@ -1,5 +1,4 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { Link } from "react-router-dom";
 import { GET_SONGS, DELETE_SONG } from "../queries/songs"
@@ -11,8 +10,8 @@ const SongList = () => {
   if (loading) return <div />;
   if (error) return <div>Error</div>;
 
-  const renderSongs = songs => {
-    return (songs.map(({id, title}) => {
+  const renderSongs = () => {
+    return (data.songs.map(({id, title}) => {
       return (
         <li key={id} className="collection-item">
           <Link to={`/songs/${id}`}>{title}</Link>
@@ -33,7 +32,7 @@ const SongList = () => {
   return (
     <div>
       <ul className="collection">
-        {renderSongs(data.songs)}
+        {renderSongs()}
       </ul>
       <Link to="/songs/new" className="btn-floating btn-large red right">
         <i className="material-icons">add</i>
