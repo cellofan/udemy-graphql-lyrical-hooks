@@ -8,7 +8,7 @@ const SongDetail = (props) => {
   let { id } = useParams();
   const { loading, error, data, refetch } = useQuery(GET_SONG, { variables: { id } });
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <div />;
   if (error) return <div>Error</div>;
 
   const { title, lyrics } = data.song;

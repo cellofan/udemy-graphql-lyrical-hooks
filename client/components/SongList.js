@@ -8,7 +8,7 @@ const SongList = () => {
   const { loading, error, data, refetch } = useQuery(GET_SONGS);
   const [deleteSong] = useMutation(DELETE_SONG);
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <div />;
   if (error) return <div>Error</div>;
 
   const renderSongs = songs => {
